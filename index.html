@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>銀寶盤點平台幣｜代幣定位・白皮書章節・初始分配・TGE</title>
+  <title>銀寶平台幣聚合器｜提供代幣定位・白皮書・初始分配・有效篩選</title>
   <style>
     :root{--bg:#f8fafc;--card:#fff;--text:#0f172a;--muted:#64748b;--line:#e2e8f0;--dark:#020617;--ok:#047857;--warn:#b45309;--bad:#b91c1c;--blue:#2563eb;--soft:#f1f5f9}
     *{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC",Arial,sans-serif;background:var(--bg);color:var(--text)}a{color:inherit}
@@ -34,15 +34,15 @@
 </head>
 <body>
   <div class="wrap">
-    <div class="pill">⚙️ 銀寶盤點平台幣｜Tokenomics</div>
-    <h1>銀寶盤點平台幣</h1>
-    <p class="lead">代幣定位、白皮書章節、初始分配、TGE</p>
+    <div class="pill">⚙️ 銀寶｜Tokenomics</div>
+    <h1>銀寶｜平台幣聚合器</h1>
+    <p class="lead">提供有效篩選代幣定位、生成白皮書、代幣初始分配與價格走勢</p>
     <div class="grid">
       <aside>
         <div class="card"><div class="inner">
-          <div class="row"><div><h2>功能與 Tokenomics 篩選</h2><div class="sub" id="selectedCount"></div></div><button class="btn" id="clearBtn">清除</button></div>
+          <div class="row"><div><h2>已篩選群組</h2><div class="sub" id="selectedCount"></div></div><button class="btn" id="clearBtn">清除</button></div>
           <div class="preset-grid section" id="presets"></div>
-          <input class="feature-filter" id="featureSearch" placeholder="搜尋左側篩選條件：例如 TGE、解鎖、Solana、台灣、流動性、Coinbase" />
+          <input class="feature-filter" id="featureSearch" placeholder="加速搜尋功能：例如Solana鏈、台灣、Coinbase" />
           <div id="features"></div>
         </div></div>
         <div class="card section"><div class="inner">
@@ -54,7 +54,7 @@
       </aside>
       <main>
         <div class="card"><div class="inner">
-          <div class="row"><div><h2>最佳匹配結果</h2><div class="sub">功能權重 + Tokenomics 權重</div></div><div class="search"><input id="query" placeholder="搜尋代幣 / 類型 / 鏈 / 資料源"></div></div>
+          <div class="row"><div><h2>最佳匹配結果</h2><div class="sub">Tokenomics + 功能權重</div></div><div class="search"><input id="query" placeholder="快速搜尋代幣 / 類型 / 鏈 / 資料源"></div></div>
           <div id="best"></div>
         </div></div>
         <div class="mini-grid section">
@@ -62,7 +62,7 @@
           <div class="card"><div class="inner"><h3>建議模板組合</h3><div id="templates" class="section"></div></div></div>
         </div>
         <div class="card section"><div class="inner"><h3>由勾選條件生成的發幣規劃草案</h3><div class="sub">這是規劃模板，不是法律或投資建議；用於內部產品、財務、法遵與工程討論。</div><div id="blueprint" class="section"></div></div></div>
-        <div class="card section"><div class="inner"><h3>右側生成：白皮書、幣種規格、分配圖、解鎖表、開發甘特圖</h3><div class="sub">依左側勾選條件即時產出可複製的發幣文件骨架，用於 PM、工程、法遵、財務與投資人溝通。</div><div id="generatedOutput" class="section"></div></div></div>
+        <div class="card section"><div class="inner"><h3>自動生成：白皮書、幣種規格、分配圖、解鎖表、開發甘特圖</h3><div class="sub">依左側勾選條件即時產出可複製的發幣文件。</div><div id="generatedOutput" class="section"></div></div></div>
         <div class="card section"><div class="inner"><h3>代幣匹配排序與資料源</h3><div class="table section"><div class="thead"><div>代幣</div><div>類型</div><div class="hide-sm">資料源 / 適配</div><div>風險</div><div>資料</div><div>匹配</div></div><div id="rows"></div></div></div></div>
         <div class="card section"><div class="inner"><h3>資料源連結庫</h3><div id="linklib" class="mini-grid section"></div></div></div>
       </main>
@@ -71,7 +71,7 @@
 <script>
 'use strict';
 const FEATURES=[
-{id:'fee_discount',label:'交易 / 服務費折扣',group:'1. 平台功能權益',weight:5,hint:'最容易落地的 utility，適合交易、API、SaaS、管理費抵扣。'},
+{id:'fee_discount',label:'交易 / 服務費折扣',group:'1. 平台功能權益',weight:5,hint:'最容易落地的功能幣，適合交易、API、SaaS、管理費抵扣。'},
 {id:'vip',label:'VIP / 會員等級',group:'1. 平台功能權益',weight:4,hint:'持有量、交易量、AUM、KYC 等級可共同決定會員權益。'},
 {id:'launchpad',label:'Launchpad / 白名單 / 新品認購',group:'1. 平台功能權益',weight:4,hint:'適合新產品、策略、RWA、合作項目導流。'},
 {id:'staking',label:'鎖倉 / Staking 權益',group:'1. 平台功能權益',weight:3,hint:'建議綁定折扣、額度、投票權，不承諾固定收益。'},
